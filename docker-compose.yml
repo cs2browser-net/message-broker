@@ -1,0 +1,11 @@
+services:
+  nextjs:
+    image: golang:1.25.0
+    container_name: cs2browser-mb
+    network_mode: bridge
+    ports:
+      - "4222:4222"
+    command: >
+      sh -c "
+      rm -rf /app && git clone https://github.com/cs2browser-net/message-broker /app && 
+      cd /app && go build main.go && ./main"
